@@ -1,0 +1,38 @@
+{
+  "name": "wlin-ui",
+  "description": "react template",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "license": "",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest",
+    "coverage": "vitest run --coverage",
+    "clean": "rimraf node_modules",
+    "prepare": "panda codegen",
+    "lint": "biome check --apply ./src"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.8.3",
+    "@iconify/json": "^2.2.226",
+    "@pandacss/dev": "^0.42.0",
+    "@types/node": "^20.14.10",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@unocss/reset": "^0.61.3",
+    "@vitejs/plugin-react-swc": "^3.7.0",
+    "rimraf": "^6.0.0",
+    "typescript": "^5.5.3",
+    "unocss": "^0.61.3",
+    "vite": "^5.3.3",
+    "vitest": "^2.0.1"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  // 使用 IntelliSense 了解相关属性。 
+  // 悬停以查看现有属性的描述。
+  // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "Chrome",
+      // 实际的开发端口
+      "url": "http://localhost:6012",
+      "webRoot": "${workspaceFolder}/src",
+      // chrome的地址
+      "userDataDir": "/Users/edy/Library/Application Support/Google/Chrome/Default",
+      "disableNetworkCache": true
+    }
+  ]
+}
