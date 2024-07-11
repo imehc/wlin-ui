@@ -22,6 +22,7 @@
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/esm/index.js",
+  "unpkg":"dist/umd/@wlintt/wlin-ui.js",
   "files": [
     "dist",
     "package.json",
@@ -55,9 +56,12 @@
     "@vitejs/plugin-react-swc": "^3.7.0",
     "rimraf": "^6.0.0",
     "storybook": "^8.2.1",
+    "ts-loader": "^9.5.1",
     "typescript": "^5.5.3",
     "unocss": "^0.61.3",
     "vite": "^5.3.3",
-    "vitest": "^2.0.1"
+    "vitest": "^2.0.1",
+    "webpack": "^5.92.1",
+    "webpack-cli": "^5.1.4"
   }
 }
