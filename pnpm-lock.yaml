@@ -63,6 +63,9 @@ importers:
       '@types/react-dom':
         specifier: ^18.3.0
         version: 18.3.0
+      '@unocss/cli':
+        specifier: ^0.61.3
+        version: 0.61.3(rollup@4.17.2)
       '@unocss/reset':
         specifier: ^0.61.3
         version: 0.61.3

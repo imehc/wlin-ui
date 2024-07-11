@@ -1,6 +1,7 @@
 import { FC, useCallback, useEffect, useMemo, useRef } from 'react';
 import { WatermarkProps } from './watermark';
 import useWatermark from './use-watermark';
+export type { WatermarkProps } from './watermark';
 
 /**
  * 水印组件，用于在页面或组件中添加水印效果.
