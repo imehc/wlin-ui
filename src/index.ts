@@ -1,3 +1,6 @@
-export { Watermark } from './watermark';
+import { Watermark } from './watermark';
+import type { WatermarkProps } from './watermark/watermark';
 
-export type { WatermarkProps } from './watermark';
+export { Watermark };
+
+export type { WatermarkProps };
