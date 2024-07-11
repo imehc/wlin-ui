@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { WatermarkOptions } from './watermark';
+import type { WatermarkOptions } from './watermark';
 
 /**
  * 使用自定义水印选项创建并应用水印。
