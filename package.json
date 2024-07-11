@@ -1,13 +1,15 @@
 {
-  "name": "wlin-ui",
-  "description": "react template",
-  "private": true,
+  "name": "@wlintt/wlin-ui",
+  "description": "wlint ui",
   "version": "0.0.1",
-  "type": "module",
   "license": "",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:esm": "npx tsc -p tsconfig.build.json --module ESNext --outDir dist/esm && pnpm build:esm:css",
+    "build:cjs": "npx tsc -p tsconfig.build.json --module commonjs --outDir dist/cjs && pnpm build:cjs:css",
+    "build:esm:css": "unocss -c uno.config.ts -o dist/esm/index.css src/** --write-transformed",
+    "build:cjs:css": "unocss -c uno.config.ts -o dist/cjs/index.css src/** --write-transformed",
     "preview": "vite preview",
     "test": "vitest",
     "coverage": "vitest run --coverage",
@@ -17,10 +19,20 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
-  "dependencies": {
-    "clsx": "^2.1.1",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/esm/index.js",
+  "files": [
+    "dist",
+    "package.json",
+    "README.md"
+  ],
+  "peerDependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1"
   },
   "devDependencies": {
     "@biomejs/biome": "1.8.3",
@@ -38,6 +50,7 @@
     "@types/node": "^20.14.10",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
+    "@unocss/cli": "^0.61.3",
     "@unocss/reset": "^0.61.3",
     "@vitejs/plugin-react-swc": "^3.7.0",
     "rimraf": "^6.0.0",
