@@ -37,3 +37,7 @@ styled-system-studio
 # tanstack
 **/routeTree.gen.ts
 *storybook.log
+
+# lib
+src/main.tsx
+index.html
