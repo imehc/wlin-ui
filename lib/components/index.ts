@@ -1,5 +1,3 @@
-export { Watermark } from './watermark';
-export { Calendar } from './calendar';
-
-export type { WatermarkProps } from './watermark';
-export type { CalendarProps } from './calendar';
+export { Watermark, type WatermarkProps } from './watermark';
+export { Calendar, type CalendarProps } from './calendar';
+export { Icon, createIcon, createFromIconfont, type IconProps } from './icon';
