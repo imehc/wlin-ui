@@ -10,6 +10,18 @@ type BaseIconProps = {
 export type IconProps = BaseIconProps &
   Omit<React.SVGAttributes<SVGElement>, keyof BaseIconProps>;
 
+/**
+ * 定义一个图标组件，该组件使用React的forwardRef来传递ref到SVG元素。
+ *
+ * @param size 图标的大小，可以是字符串或数组。默认值为'1em'。
+ * @param children SVG组件内的子元素。
+ * @param style 图标的自定义样式。
+ * @param spin 是否让图标旋转。如果为真，则应用旋转动画。
+ * @param viewBox SVG的视口范围，默认为'0 0 1024 1024'。
+ * @param attr 其他传递给SVG元素的属性。
+ * @param ref 用于获取SVG元素的引用。
+ * @returns 返回一个SVG组件，根据传入的属性进行配置。
+ */
 export const Icon = forwardRef<SVGSVGElement, PropsWithChildren<IconProps>>(
   (
     { size = '1em', children, style, spin, viewBox = '0 0 1024 1024', ...attr },
@@ -36,6 +48,12 @@ export const Icon = forwardRef<SVGSVGElement, PropsWithChildren<IconProps>>(
   }
 );
 
+/**
+ * 根据传入的size参数计算并返回图标的具体尺寸。
+ *
+ * @param size 图标的大小，可以是字符串或数组。
+ * @returns 返回一个包含宽度和高度的数组。默认宽度和高度均为'1em'。
+ */
 const getSize = (size: IconProps['size']) => {
   if (Array.isArray(size) && size.length === 2) {
     return size as string[];
