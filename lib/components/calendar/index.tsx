@@ -1,11 +1,27 @@
-import { useCallback, useMemo, useState, type FC } from 'react';
-import type { CalendarProps } from './calendar';
+import {
+  type HTMLAttributes,
+  useCallback,
+  useMemo,
+  useState,
+  type FC,
+} from 'react';
 import { MonthCalendar } from './MonthCalendar';
 import { Header } from './Header';
 import LocaleContext from './LocaleContext';
 import type { LocaleKeys } from './locale';
 import { addMonths, subMonths } from 'date-fns';
-export type { CalendarProps } from './calendar';
+
+export interface CalendarProps
+  extends Pick<HTMLAttributes<HTMLDivElement>, 'style' | 'className'> {
+  value: Date;
+  /** 定制日期显示，会完全覆盖日期单元格 */
+  dateRender?(currentDate: Date): React.ReactNode;
+  /** 定制日期单元格，内容会被添加到单元格内，只在全屏日历模式下生效。 */
+  dateInnerContent?(currentDate: Date): React.ReactNode;
+  /** 国际化相关 */
+  locale?: LocaleKeys;
+  onChange?(date: Date): void;
+}
 
 export const Calendar: FC<CalendarProps> = (props) => {
   const [curValue, setCurValue] = useState(props.value);

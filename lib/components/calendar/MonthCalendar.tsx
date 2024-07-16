@@ -1,5 +1,4 @@
 import { type FC, useContext } from 'react';
-import type { MonthCalendarProps } from './month-calendar';
 import {
   addDays,
   format,
@@ -12,6 +11,12 @@ import {
 import clsx from 'clsx';
 import LocaleContext from './LocaleContext';
 import allLocales from './locale';
+import { CalendarProps } from '.';
+
+export interface MonthCalendarProps extends CalendarProps {
+  onSelect?(date: Date): void;
+  curMonth: Date;
+}
 
 export const MonthCalendar: FC<MonthCalendarProps> = ({
   value,

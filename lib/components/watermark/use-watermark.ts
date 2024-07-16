@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import type { WatermarkOptions } from './watermark';
+import type { WatermarkOptions } from '.';
 
 /**
  * 使用自定义水印选项创建并应用水印。
@@ -266,7 +266,7 @@ const getCanvasData = async ({
       // 设置图片源
       img.src = image;
       // 图片加载成功后的处理逻辑（此处为空，可能需要根据实际需求添加）
-      img.onload = () => {};
+      img.onload = () => { };
       // 图片加载失败时，尝试绘制文本水印
       img.onerror = () => {
         return drawText();
