@@ -1,7 +1,7 @@
-import type { Preview } from "@storybook/react";
+import type { Preview } from '@storybook/react';
 import 'virtual:uno.css';
 import '@unocss/reset/normalize.css';
-import '../src/index.css';
+import '../lib/index.css';
 
 const preview: Preview = {
   parameters: {
