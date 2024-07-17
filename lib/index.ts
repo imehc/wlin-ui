@@ -24,3 +24,15 @@ export type {
 } from './components';
 export { ConfigContext, ConfigProvider } from './components';
 export { createIcon, createFromIconfont } from './components';
+
+export {
+  useMountedState,
+  useCookie,
+  useHover,
+  useHoverWithRef,
+  useScroll,
+  useSize,
+  useTimeout,
+  useWhyDidYouUpdate,
+  useCountdown,
+} from './hooks';
