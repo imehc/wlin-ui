@@ -9,7 +9,8 @@ export {
   Space,
   Portal,
   MutateObserver,
-  CopyToClipboard
+  CopyToClipboard,
+  LazyLoad,
 } from './components';
 export type {
   WatermarkProps,
@@ -18,7 +19,8 @@ export type {
   SpaceProps,
   PortalProps,
   MutateObserverProps,
-  CopyToClipboardProps
+  CopyToClipboardProps,
+  LazyLoadProps,
 } from './components';
 export { ConfigContext, ConfigProvider } from './components';
 export { createIcon, createFromIconfont } from './components';
