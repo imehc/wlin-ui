@@ -67,7 +67,7 @@ export const MessageProvider = forwardRef<MessageRef, {}>((props, ref) => {
   // );
 
   const messageWrapper = (
-    <div className="fixed w-full h-full pointer-events-none flex flex-col justify-start items-center">
+    <div className="fixed left-0 top-0 w-screen h-screen pointer-events-none overflow-hidden flex flex-col justify-start items-center">
       {positions.map((direction) => (
         <TransitionGroup
           key={direction}
