@@ -1,10 +1,12 @@
-import React from 'react';
-import { SizeType } from './space';
+import React, { RefObject, useRef } from 'react';
+import type { SizeType } from './space';
+import { MessageProvider, type MessageRef } from '.';
 
 interface ConfigContextType {
   space?: {
     size?: SizeType;
   };
+  messageRef?: RefObject<MessageRef>;
 }
 export const ConfigContext = React.createContext<ConfigContextType>({});
 
@@ -20,9 +22,11 @@ interface ConfigProviderProps
  * @returns 返回一个配置上下文提供者组件。
  */
 export function ConfigProvider({ space, children }: ConfigProviderProps) {
+  const messageRef = useRef<MessageRef>(null);
   // 提供配置上下文，其中包含 space 信息。
   return (
-    <ConfigContext.Provider value={{ space }}>
+    <ConfigContext.Provider value={{ space, messageRef }}>
+      <MessageProvider ref={messageRef} />
       {children}
     </ConfigContext.Provider>
   );

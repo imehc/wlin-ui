@@ -24,6 +24,7 @@ export type {
 } from './components';
 export { ConfigContext, ConfigProvider } from './components';
 export { createIcon, createFromIconfont } from './components';
+export { useMessage } from './components';
 
 export {
   useMountedState,
@@ -33,6 +34,9 @@ export {
   useScroll,
   useSize,
   useTimeout,
+  useTimer,
   useWhyDidYouUpdate,
   useCountdown,
+  useId,
+  generateUniqueId,
 } from './hooks';
