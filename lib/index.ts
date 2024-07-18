@@ -11,6 +11,7 @@ export {
   MutateObserver,
   CopyToClipboard,
   LazyLoad,
+  Popover,
 } from './components';
 export type {
   WatermarkProps,
@@ -21,6 +22,7 @@ export type {
   MutateObserverProps,
   CopyToClipboardProps,
   LazyLoadProps,
+  PopoverProps,
 } from './components';
 export { ConfigContext, ConfigProvider } from './components';
 export { createIcon, createFromIconfont } from './components';

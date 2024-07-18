@@ -8,6 +8,7 @@ export {
   type CopyToClipboardProps,
 } from './copy-to-clipboard';
 export { LazyLoad, type LazyLoadProps } from './lazy-load';
+export { Popover, type PopoverProps } from './popover';
 
 export { MessageProvider, type MessageProps, type MessageRef } from './message';
 export { useMessage } from './message/use-message';

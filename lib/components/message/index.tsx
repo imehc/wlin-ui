@@ -1,11 +1,4 @@
-import {
-  createRef,
-  FC,
-  forwardRef,
-  ReactNode,
-  useImperativeHandle,
-  useMemo,
-} from 'react';
+import { createRef, FC, forwardRef, ReactNode, useMemo } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { createPortal } from 'react-dom';
 import clsx from 'clsx';
