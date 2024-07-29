@@ -1,4 +1,4 @@
-import {
+import React,{
   HTMLAttributes,
   type ReactNode,
   type FC,
@@ -54,6 +54,7 @@ export const LazyLoad: FC<LazyLoadProps> = ({
         const node = containerRef.current;
         // 停止观察该元素。
         if (node && node instanceof HTMLElement) {
+          // eslint-disable-next-line @typescript-eslint/no-use-before-define
           elementObserver.current?.unobserve(node);
         }
       }

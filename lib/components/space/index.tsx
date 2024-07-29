@@ -3,6 +3,17 @@ import React from 'react';
 import { useMemo } from 'react';
 import { ConfigContext } from '..';
 
+const spaceSize = {
+  small: 8,
+  middle: 16,
+  large: 24,
+};
+
+function getNumberSize(size: SizeType) {
+  return typeof size === 'string' ? spaceSize[size] : size || 0;
+}
+
+
 export type SizeType = 'small' | 'middle' | 'large' | number | undefined;
 
 /**
@@ -96,13 +107,3 @@ export const Space: React.FC<SpaceProps> = ({
     </div>
   );
 };
-
-const spaceSize = {
-  small: 8,
-  middle: 16,
-  large: 24,
-};
-
-function getNumberSize(size: SizeType) {
-  return typeof size === 'string' ? spaceSize[size] : size || 0;
-}

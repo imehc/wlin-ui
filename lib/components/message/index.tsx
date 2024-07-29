@@ -1,4 +1,4 @@
-import { createRef, FC, forwardRef, ReactNode, useMemo } from 'react';
+import React,{ createRef, FC, forwardRef, ReactNode, useMemo } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { createPortal } from 'react-dom';
 import clsx from 'clsx';
@@ -25,8 +25,7 @@ const MessageItem: FC<MessageProps> = (item) => {
 
   return (
     <div
-      className="mb-4 px-4 py-2 text-sm pointer-events-auto shadow"
-      border="1 solid #ccc"
+      className="mb-4 px-4 py-2 text-sm pointer-events-auto shadow border border-solid border-[#ccc]"
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
@@ -35,10 +34,9 @@ const MessageItem: FC<MessageProps> = (item) => {
   );
 };
 
-export interface MessageRef
-  extends Omit<ReturnType<typeof useStore>, 'messageList'> {}
+export type MessageRef = Omit<ReturnType<typeof useStore>, 'messageList'>
 
-export const MessageProvider = forwardRef<MessageRef, {}>((props, ref) => {
+export const MessageProvider = forwardRef<MessageRef, unknown>((props, ref) => {
   const { messageList, add, update, remove, clearAll } = useStore('top');
 
   const positions = useMemo(

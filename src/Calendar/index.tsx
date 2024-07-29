@@ -100,3 +100,5 @@ export const Calendar: FC<CalendarProps> = (props) => {
     </LocaleContext.Provider>
   );
 };
+
+export default Calendar;

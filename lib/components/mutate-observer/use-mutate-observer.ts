@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef } from "react";
+import { useEffect, useRef } from "react";
 
 const defaultOptions: MutationObserverInit = {
   subtree: true,// 连带子节点的属性、children 变化也监听

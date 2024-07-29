@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from 'react';
+import React,{ useMemo, useRef, useState } from 'react';
 import {
   arrow,
   flip,
@@ -60,19 +60,19 @@ export const Popover: React.FC<PopoverProps> = ({
   });
 
   // 根据触发方式选择使用 hover 或 click 交互
-  // const hover = useHover(context, { enabled: trigger === 'hover' });
-  // const click = useHover(context, { enabled: trigger === 'click' });
-  const interaction =
-    trigger === 'hover' ? useHover(context) : useClick(context);
+  const hover = useHover(context, { enabled: trigger === 'hover' });
+  const click = useClick(context, { enabled: trigger === 'click' });
+  // const interaction =
+  //   trigger === 'hover' ? useHover(context) : useClick(context);
 
   // 使用 useDismiss 钩子来处理弹出层的关闭交互
   const dismiss = useDismiss(context);
 
   // 使用 useInteractions 钩子来组合所有的交互
   const { getReferenceProps, getFloatingProps } = useInteractions([
-    // hover,
-    // click,
-    interaction,
+    hover,
+    click,
+    // interaction,
     dismiss,
   ]);
 
@@ -86,8 +86,7 @@ export const Popover: React.FC<PopoverProps> = ({
   // 根据 isOpen 来渲染浮动层
   const floating = isOpen ? (
     <div
-      className="py-1 px-2 rounded"
-      border="1 solid #000"
+      className="py-1 px-2 rounded border border-solid border-[#000]"
       ref={refs.setFloating}
       style={floatingStyles}
       {...getFloatingProps()}

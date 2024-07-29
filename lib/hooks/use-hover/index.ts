@@ -39,6 +39,7 @@ export const useHover = (element: Element): [React.ReactElement, boolean] => {
 
   // 如果元素是一个函数组件，使用hover状态重新渲染该函数
   if (typeof element === 'function') {
+    // eslint-disable-next-line no-param-reassign
     element = element(state);
   }
 

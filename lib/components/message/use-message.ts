@@ -3,6 +3,29 @@ import type { MessageProps, MessageRef, Position } from '.';
 import { generateUniqueId } from '../../hooks';
 import { ConfigContext } from '..';
 
+// 获取消息在列表中的位置。
+const getMessagePosition = (id: number, messageList: MessageList) => {
+  for (const [position, list] of Object.entries(messageList)) {
+    if (list.find((item) => item.id === id)) {
+      return position as Position;
+    }
+  }
+};
+
+// 查找消息在列表中的位置和索引。
+const findMessage = (id: number, messageList: MessageList) => {
+  const position = getMessagePosition(id, messageList);
+
+  const index = position
+    ? messageList[position].findIndex((message) => message.id === id)
+    : -1;
+
+  return {
+    position,
+    index,
+  };
+};
+
 type MessageList = {
   top: MessageProps[];
   bottom: MessageProps[];
@@ -106,29 +129,6 @@ export const useStore = (defaultPosition: Position) => {
     }),
     [add, update, remove, clearAll, messageList]
   );
-};
-
-// 获取消息在列表中的位置。
-const getMessagePosition = (id: number, messageList: MessageList) => {
-  for (const [position, list] of Object.entries(messageList)) {
-    if (list.find((item) => item.id === id)) {
-      return position as Position;
-    }
-  }
-};
-
-// 查找消息在列表中的位置和索引。
-const findMessage = (id: number, messageList: MessageList) => {
-  const position = getMessagePosition(id, messageList);
-
-  const index = position
-    ? messageList[position].findIndex((message) => message.id === id)
-    : -1;
-
-  return {
-    position,
-    index,
-  };
 };
 
 /**

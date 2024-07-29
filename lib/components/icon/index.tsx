@@ -1,6 +1,27 @@
-import { type PropsWithChildren, type HTMLAttributes, forwardRef } from 'react';
+import React,{ type PropsWithChildren, type HTMLAttributes, forwardRef } from 'react';
 import clsx from 'clsx';
 import { css } from '#/css';
+
+/**
+ * 根据传入的size参数计算并返回图标的具体尺寸。
+ *
+ * @param size 图标的大小，可以是字符串或数组。
+ * @returns 返回一个包含宽度和高度的数组。默认宽度和高度均为'1em'。
+ */
+const getSize = (size: IconProps['size']) => {
+  if (Array.isArray(size) && size.length === 2) {
+    return size as string[];
+  }
+  const width = (size as string) || '1em';
+  const height = (size as string) || '1em';
+  return [width, height];
+};
+
+interface CreateIconOptions {
+  content: React.ReactNode;
+  iconProps?: IconProps;
+  viewBox?: string;
+}
 
 type BaseIconProps = {
   size?: string | string[];
@@ -47,27 +68,6 @@ export const Icon = forwardRef<SVGSVGElement, PropsWithChildren<IconProps>>(
     );
   }
 );
-
-/**
- * 根据传入的size参数计算并返回图标的具体尺寸。
- *
- * @param size 图标的大小，可以是字符串或数组。
- * @returns 返回一个包含宽度和高度的数组。默认宽度和高度均为'1em'。
- */
-const getSize = (size: IconProps['size']) => {
-  if (Array.isArray(size) && size.length === 2) {
-    return size as string[];
-  }
-  const width = (size as string) || '1em';
-  const height = (size as string) || '1em';
-  return [width, height];
-};
-
-interface CreateIconOptions {
-  content: React.ReactNode;
-  iconProps?: IconProps;
-  viewBox?: string;
-}
 
 /**
  * 创建一个图标组件。

@@ -11,7 +11,7 @@ import { useCallback, useEffect, useRef } from 'react';
  */
 export const useTimeout = (fn: () => void, delay?: number) => {
   // 使用 useRef 保存回调函数的引用，确保其在组件重渲染时不会丢失。
-  const fnRef = useRef<Function>(fn);
+  const fnRef = useRef<() => void>(fn);
   fnRef.current = fn;
 
   // 使用 useRef 保存定时器的 ID，以便于清除定时器。
@@ -29,7 +29,10 @@ export const useTimeout = (fn: () => void, delay?: number) => {
     timerRef.current = setTimeout(() => fnRef.current(), delay);
 
     return () => {
-      timerRef.current && clearTimeout(timerRef.current);
+      if (!timerRef.current) {
+        return
+      }
+      clearTimeout(timerRef.current);
     };
   }, [delay]);
 
@@ -59,18 +62,6 @@ export function useTimer({ remove, id, duration = 2000 }: UseTimerProps) {
   const timer = useRef<number | null>(null);
 
   /**
-   * 启动计时器。
-   *
-   * 该函数设置一个定时器，在指定的持续时间后调用 `remove` 函数，并清除计时器。
-   */
-  const startTimer = () => {
-    timer.current = window.setTimeout(() => {
-      remove(id);
-      removeTimer();
-    }, duration);
-  };
-
-  /**
    * 清除计时器。
    *
    * 该函数用于清除已设置的计时器，防止其在未来触发。
@@ -80,6 +71,18 @@ export function useTimer({ remove, id, duration = 2000 }: UseTimerProps) {
       clearTimeout(timer.current);
       timer.current = null;
     }
+  };
+
+  /**
+   * 启动计时器。
+   *
+   * 该函数设置一个定时器，在指定的持续时间后调用 `remove` 函数，并清除计时器。
+   */
+  const startTimer = () => {
+    timer.current = window.setTimeout(() => {
+      remove(id);
+      removeTimer();
+    }, duration);
   };
 
   // 使用 useEffect 来在组件挂载时启动计时器，并在组件卸载时清除计时器。

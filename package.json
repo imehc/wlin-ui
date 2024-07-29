@@ -1,30 +1,56 @@
 {
   "name": "@wlintt/wlin-ui",
-  "description": "wlint ui",
   "version": "0.0.7",
-  "license": "",
+  "description": "A react library developed with dumi",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc --p tsconfig.build.json && vite build",
-    "preview": "vite preview",
-    "test": "vitest",
-    "coverage": "vitest run --coverage",
-    "clean": "rimraf node_modules",
-    "prepare": "panda codegen",
-    "lint": "biome check --apply ./src",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "start": "npm run panda --watch && npm run dev",
+    "dev": "dumi dev",
+    "build": "father build",
+    "build:watch": "father dev",
+    "docs:build": "dumi build",
+    "docs:preview": "dumi preview",
+    "prepare": "husky install && dumi setup",
+    "doctor": "father doctor",
+    "lint": "npm run lint:es && npm run lint:css",
+    "lint:css": "stylelint \"{src,test}/**/*.{css,less}\"",
+    "lint:es": "eslint \"{src,test}/**/*.{js,jsx,ts,tsx}\"",
+    "prepublishOnly": "father doctor && npm run build",
+    "panda": "panda codegen"
   },
-  "main": "dist/index.js",
-  "types": "dist/index.d.js",
+  "authors": [
+    "richohealthy@hotmail.com"
+  ],
+  "license": "MIT",
   "files": [
-    "dist",
-    "package.json",
-    "README.md"
+    "dist"
   ],
-  "sideEffects": [
-    "**/*.css"
-  ],
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "lint-staged": {
+    "*.{md,json}": [
+      "prettier --write --no-error-on-unmatched-pattern"
+    ],
+    "*.{css,less}": [
+      "stylelint --fix",
+      "prettier --write"
+    ],
+    "*.{js,jsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --parser=typescript --write"
+    ]
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "peerDependencies": {
     "@floating-ui/react": "^0.26.19",
     "clsx": "^2.1.1",
@@ -37,33 +63,27 @@
     "resize-observer-polyfill": "^1.5.1"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.8.3",
-    "@chromatic-com/storybook": "^1.6.1",
-    "@iconify/json": "^2.2.226",
-    "@pandacss/dev": "^0.42.0",
-    "@storybook/addon-essentials": "^8.2.1",
-    "@storybook/addon-interactions": "^8.2.1",
-    "@storybook/addon-links": "^8.2.1",
-    "@storybook/addon-onboarding": "^8.2.1",
-    "@storybook/blocks": "^8.2.1",
-    "@storybook/react": "^8.2.1",
-    "@storybook/react-vite": "^8.2.1",
-    "@storybook/test": "^8.2.1",
-    "@types/js-cookie": "^3.0.6",
-    "@types/node": "^20.14.10",
-    "@types/react": "^18.3.3",
-    "@types/react-dom": "^18.3.0",
-    "@types/react-transition-group": "^4.4.10",
-    "@unocss/reset": "^0.61.3",
-    "@vitejs/plugin-react-swc": "^3.7.0",
-    "glob": "^11.0.0",
-    "rimraf": "^6.0.0",
-    "storybook": "^8.2.1",
-    "typescript": "^5.5.3",
-    "unocss": "^0.61.3",
-    "vite": "^5.3.3",
-    "vite-plugin-dts": "^3.9.1",
-    "vite-plugin-lib-inject-css": "^2.1.1",
-    "vitest": "^2.0.1"
+    "@commitlint/cli": "^17.1.2",
+    "@commitlint/config-conventional": "^17.1.0",
+    "@pandacss/dev": "^0.44.0",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "@umijs/lint": "^4.0.0",
+    "@umijs/plugins": "^4.3.9",
+    "autoprefixer": "^10.4.19",
+    "click-to-react-component": "^1.1.0",
+    "dumi": "^2.3.0",
+    "eslint": "^8.23.0",
+    "father": "^4.1.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "postcss": "^8.4.40",
+    "prettier": "^2.7.1",
+    "prettier-plugin-organize-imports": "^3.0.0",
+    "prettier-plugin-packagejson": "^2.2.18",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "stylelint": "^14.9.1",
+    "tailwindcss": "^3.4.6"
   }
 }

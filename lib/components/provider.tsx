@@ -1,6 +1,6 @@
 import React, { RefObject, useRef } from 'react';
-import type { SizeType } from './space';
 import { MessageProvider, type MessageRef } from '.';
+import type { SizeType } from './space';
 
 interface ConfigContextType {
   space?: {
@@ -10,8 +10,7 @@ interface ConfigContextType {
 }
 export const ConfigContext = React.createContext<ConfigContextType>({});
 
-interface ConfigProviderProps
-  extends React.PropsWithChildren<ConfigContextType> {}
+type ConfigProviderProps = React.PropsWithChildren<ConfigContextType>;
 
 /**
  * ConfigProvider 组件提供了一个配置上下文，用于在组件树中传递和共享配置信息，如间距设置。
