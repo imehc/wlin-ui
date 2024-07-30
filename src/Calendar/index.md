@@ -16,9 +16,9 @@ group: # 分组
 ## 示例 
 
 <!-- 可以通过code加载示例代码，dumi会帮我们做解析 -->
-<code src="./index.demo.tsx">基础用法</code>
-<code src="./index.demo2.tsx">定制日期显示</code>
-<code src="./index.demo3.tsx">定制日期单元格</code>
+<code src="../../examples/calendar/demo01.tsx">基础用法</code>
+<code src="../../examples/calendar/demo02.tsx">定制日期显示</code>
+<code src="../../examples/calendar/demo03.tsx">定制日期单元格</code>
 
 ## APi
 

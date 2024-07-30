@@ -1,3 +1,4 @@
+import React from "react";
 import { Calendar } from '@wlintt/wlin-ui';
 import { format } from 'date-fns';
 
@@ -6,9 +7,9 @@ export default () => {
     <>
       <Calendar
         value={new Date()}
-        dateInnerContent={(value) => (
+        dateRender={(value) => (
           <div>
-            <p style={{ background: 'yellowgreen', height: '30px' }}>
+            <p style={{ background: 'yellowgreen', height: '50px' }}>
               {format(value, 'yyyy-MM-dd')}
             </p>
           </div>

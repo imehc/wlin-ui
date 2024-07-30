@@ -113,7 +113,7 @@ export const MonthCalendar: FC<MonthCalendarProps> = ({
               <div className="p-2">
                 <div
                   className={clsx({
-                    'bg-blue w-7 h-7 leading-7 text-center text-white rounded-1/2 cursor-pointer':
+                    'bg-blue-500 w-7 h-7 leading-7 text-center text-white rounded-full cursor-pointer':
                       isEqual(
                         format(value, 'yyyy-MM-dd'),
                         format(item.date, 'yyyy-MM-dd')

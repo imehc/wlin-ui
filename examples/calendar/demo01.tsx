@@ -1,3 +1,4 @@
+import React from "react";
 import { Calendar } from '@wlintt/wlin-ui';
 
 export default () => {

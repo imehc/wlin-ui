@@ -11,7 +11,9 @@ export default defineConfig({
       // { title: 'Hooks', link: '/hooks' },
     ],
   },
+  plugins: ['@umijs/plugins/dist/tailwindcss'],
   alias: {
     '#': resolve(__dirname, 'styled-system')
-  }
+  },
+  tailwindcss: {}
 });
