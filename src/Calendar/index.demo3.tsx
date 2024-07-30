@@ -1,6 +1,5 @@
 import { Calendar } from '@wlintt/wlin-ui';
 import { format } from 'date-fns';
-import React from 'React';
 
 export default () => {
   return (
